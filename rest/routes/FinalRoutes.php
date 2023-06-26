@@ -1,17 +1,25 @@
 <?php
-
-Flight::route('GET /midterm/connection-check', function(){
-    Flight::midtermService();
+use Firebase\JWT\JWT;
+use Firebase\JWT\Key;
+Flight::route('GET /final/connection-check', function(){
     /** TODO
     * This endpoint prints the message from constructor within MidtermDao class
     * Goal is to check whether connection is successfully established or not
     * This endpoint does not have to return output in JSON format
-    * Sample output is given in figure 2
     */
 });
 
-Flight::route('POST /midterm/investor', function(){
-    Flight::json(Flight::midtermService()->investors());
+Flight::route('GET /final/login', function(){
+    /** TODO
+    * This endpoint is used to login user to system
+    * you can use email: demo.user@gmail.com and password: 123 to login
+    * Output should be array containing success message and JWT for this user
+    * Sample output is given in figure 7
+    * This endpoint should return output in JSON format
+    */
+});
+
+Flight::route('POST /final/investor', function(){
     /** TODO
     * This endpoint is used to add new record to investors and cap-table database tables.
     * Investor contains: first_name, last_name, email and company
@@ -29,29 +37,17 @@ Flight::route('POST /midterm/investor', function(){
 });
 
 
-Flight::route('GET /midterm/investor_email/@email', function($email){
+Flight::route('GET /final/share_classes', function(){
     /** TODO
-    * This endpoint is used to check if investor email is in valid format
-    * and if it exists in investors table
-    * If format is not valid, output should be 'Invalid email format' message
-    * If format is valid, return either
-    * 'Investor first_name last_name' uses this email address' (replace first_name and last_name with data from database)
-    * or 'Investor with this email does not exists in database'
-    * Output example is given in figure 2 (message should be updated according to the result)
+    * This endpoint is used to list all share classes from share_classes table
     * This endpoint should return output in JSON format
     */
 });
 
-Flight::route("GET /midterm/investor/@share_class_id", function($share_class_id){
+Flight::route('GET /final/share_class_categories', function(){
     /** TODO
-    * This endpoint is used to list all investors from give share_class
-    * (meaning all investors occuring in cap table with given share_class_id)
-    * It should return share class description, equiy main currency, price and authorized_assets,
-    * investor first and last name, email, company and total diluted assets within cap table
-    * Sample data within tables and expected output with given data is provided in figures 3, 4, 5 and 6
-    * Output is given in figure 6
+    * This endpoint is used to list all share class categories from share_class_categories table
     * This endpoint should return output in JSON format
     */
 });
-
 ?>
